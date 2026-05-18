@@ -41,7 +41,7 @@ fun TaskDetailRoute(
     TaskDetailScreen(
         task = task,
         onBack = onBack,
-        onSave = { id, isDone -> viewModel.saveTask(id, isDone) },
+        onSave = { id, isDone -> viewModel.saveTask(id, isDone); onBack() },
         modifier = modifier,
     )
 }
