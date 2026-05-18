@@ -4,44 +4,26 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.remember
+import com.alfoll.kfdapplication.data.FakeTaskRepository
+import com.alfoll.kfdapplication.presentation.TasksRoute
+import com.alfoll.kfdapplication.presentation.TasksViewModel
 import com.alfoll.kfdapplication.ui.theme.KfdapplicationTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val repo = FakeTaskRepository()
+
         enableEdgeToEdge()
         setContent {
             KfdapplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                // модель нужно сохранить
+                val viewModel = remember(repo) { TasksViewModel(repo) }
+
+                TasksRoute(viewModel, onTaskClick = {})
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    KfdapplicationTheme {
-        Greeting("Android")
     }
 }
