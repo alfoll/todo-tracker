@@ -1,4 +1,4 @@
-package com.alfoll.kfdapplication.ui.theme
+package com.alfoll.todotracker.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

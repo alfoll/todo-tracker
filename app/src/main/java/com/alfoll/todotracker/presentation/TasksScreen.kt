@@ -1,4 +1,4 @@
-package com.alfoll.kfdapplication.presentation
+package com.alfoll.todotracker.presentation
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -19,7 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.alfoll.kfdapplication.data.TaskEntity
+import com.alfoll.todotracker.data.TaskEntity
 
 // на него переведет навигация когда захотим показать список тасок
 // надстройка над экраном - для повышения связности

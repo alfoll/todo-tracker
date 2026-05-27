@@ -1,4 +1,4 @@
-package com.alfoll.kfdapplication.presentation
+package com.alfoll.todotracker.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.alfoll.kfdapplication.data.FakeTaskRepository
+import com.alfoll.todotracker.data.FakeTaskRepository
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 

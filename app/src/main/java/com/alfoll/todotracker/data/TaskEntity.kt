@@ -1,4 +1,4 @@
-package com.alfoll.kfdapplication.data
+package com.alfoll.todotracker.data
 
 data class TaskEntity(
     val id: String,

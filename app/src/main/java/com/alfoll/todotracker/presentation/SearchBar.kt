@@ -1,4 +1,4 @@
-package com.alfoll.kfdapplication.presentation
+package com.alfoll.todotracker.presentation
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.OutlinedTextField

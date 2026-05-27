@@ -1,9 +1,9 @@
-package com.alfoll.kfdapplication.presentation
+package com.alfoll.todotracker.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.alfoll.kfdapplication.data.FakeTaskRepository
-import com.alfoll.kfdapplication.data.TaskEntity
+import com.alfoll.todotracker.data.FakeTaskRepository
+import com.alfoll.todotracker.data.TaskEntity
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update

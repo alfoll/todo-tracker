@@ -1,19 +1,19 @@
-package com.alfoll.kfdapplication
+package com.alfoll.todotracker
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.alfoll.kfdapplication.data.FakeTaskRepository
-import com.alfoll.kfdapplication.presentation.AppNavHost
-import com.alfoll.kfdapplication.ui.theme.KfdapplicationTheme
+import com.alfoll.todotracker.data.FakeTaskRepository
+import com.alfoll.todotracker.presentation.AppNavHost
+import com.alfoll.todotracker.ui.theme.TodoTrackerTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            KfdapplicationTheme {
+            TodoTrackerTheme {
                 // в корне живет только навигация
                 AppNavHost(FakeTaskRepository(), darkTheme = true, onThemeChanged = {})
             }

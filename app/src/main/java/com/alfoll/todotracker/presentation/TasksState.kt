@@ -1,6 +1,6 @@
-package com.alfoll.kfdapplication.presentation
+package com.alfoll.todotracker.presentation
 
-import com.alfoll.kfdapplication.data.TaskEntity
+import com.alfoll.todotracker.data.TaskEntity
 
 // "не мучаем пользователя ребилдами" сказал сенсей
 data class TasksState(

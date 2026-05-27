@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "kfdapplication"
+rootProject.name = "TodoTracker"
 include(":app")
