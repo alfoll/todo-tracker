@@ -26,8 +26,7 @@ fun AppNavHost(
 ) {
     val navController = rememberNavController()
 
-    val repo = FakeTaskRepository()
-    val viewModel = remember(repo) { TasksViewModel(repo) }
+    val viewModel = remember(repository) { TasksViewModel(repository) }
 
     NavHost(
         navController = navController,
@@ -39,7 +38,8 @@ fun AppNavHost(
                 viewModel,
                 onTaskClick = { id ->
                     navController.navigate("${Routes.TASK_DETAIL}/$id")
-                }
+                },
+                onSettingsClick = { navController.navigate(Routes.SETTINGS) },
             )
         }
 
@@ -54,6 +54,14 @@ fun AppNavHost(
             TaskDetailRoute(
                 taskId,
                 viewModel,
+                onBack = navController::popBackStack,
+            )
+        }
+
+        composable(Routes.SETTINGS) {
+            SettingsRoute(
+                darkTheme,
+                onThemeChanged,
                 onBack = navController::popBackStack,
             )
         }

@@ -1,16 +1,23 @@
 package com.alfoll.todotracker.presentation
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,6 +34,7 @@ import com.alfoll.todotracker.data.TaskEntity
 fun TasksRoute(
     viewModel: TasksViewModel,
     onTaskClick: (String) -> Unit,
+    onSettingsClick: () -> Unit,
 ) {
     // подписываемся на state flow который вызывает рекомпозицию при его изменении
     // lifecycle активити - стейт связан с состоянием экрана
@@ -43,6 +51,7 @@ fun TasksRoute(
         state = state.value,
         onQueryChanged = viewModel::onQueryChange,
         onTaskClick = onTaskClick,
+        onSettingsClick = onSettingsClick,
     )
 }
 
@@ -51,6 +60,7 @@ fun TasksScreen(
     state: TasksState,
     onQueryChanged: (String) -> Unit,
     onTaskClick: (String) -> Unit,
+    onSettingsClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     // обработать запрос поиска
@@ -66,10 +76,31 @@ fun TasksScreen(
                 .padding(16.dp), // под внутр отступ для контента
             verticalArrangement = Arrangement.spacedBy(16.dp), // расстояние между элементами Column по вертикали
         ) {
-            SearchBar(
-                value = state.query, // все рисуем в зависимости от стейта
-                onValueChanged = onQueryChanged,
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                SearchBar(
+                    value = state.query, // все рисуем в зависимости от стейта
+                    onValueChanged = onQueryChanged,
+                    modifier = Modifier.weight(1f),
+                )
+               OutlinedIconButton(
+                    onClick = onSettingsClick,
+                    modifier = Modifier.size(56.dp),
+                    shape = MaterialTheme.shapes.extraSmall,
+                    border = BorderStroke(
+                        width = 1.dp,
+                        color = MaterialTheme.colorScheme.outline,
+                    )
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.MoreVert,
+                        contentDescription = "Settings",
+                    )
+                }
+            }
             // стейты на обработку:
                 // isLoading
                 // data -> tasks.notEmpty - пришел список
