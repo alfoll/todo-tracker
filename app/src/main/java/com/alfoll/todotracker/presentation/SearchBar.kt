@@ -25,6 +25,7 @@ fun SearchBar(
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = MaterialTheme.colorScheme.primary,
             unfocusedBorderColor = MaterialTheme.colorScheme.outline,
-        )
+        ),
+        shape = MaterialTheme.shapes.small,
     )
 }

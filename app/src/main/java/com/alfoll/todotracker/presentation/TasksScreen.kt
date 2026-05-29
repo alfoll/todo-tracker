@@ -89,7 +89,7 @@ fun TasksScreen(
                OutlinedIconButton(
                     onClick = onSettingsClick,
                     modifier = Modifier.size(56.dp),
-                    shape = MaterialTheme.shapes.extraSmall,
+                    shape = MaterialTheme.shapes.small,
                     border = BorderStroke(
                         width = 1.dp,
                         color = MaterialTheme.colorScheme.outline,
@@ -122,7 +122,7 @@ fun TasksScreen(
                 else -> {
                     // отрисовывает не все элементы сразу а только те что на экране + еще парочку наверх и вниз
                     LazyColumn(
-                        verticalArrangement = Arrangement.spacedBy(12.dp),
+                        verticalArrangement = Arrangement.spacedBy(16.dp),
                     ) {
                         items(filteredTasks) {
                             TaskItem(task = it, onClick = { onTaskClick(it.id) })
@@ -142,16 +142,18 @@ fun TaskItem(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
+            .clickable(onClick = onClick)
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
+
         Text(
             text = task.title,
-            style = MaterialTheme.typography.titleMedium
+            style = MaterialTheme.typography.titleLarge
         )
         Text(
             text = if (task.isDone) "Done!" else "Not done yet :(",
-            style = MaterialTheme.typography.bodyMedium
+            style = MaterialTheme.typography.bodyLarge
         )
     }
 }

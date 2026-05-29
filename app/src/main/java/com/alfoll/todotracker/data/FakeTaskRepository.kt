@@ -9,6 +9,12 @@ class FakeTaskRepository {
         TaskEntity("2", "Learn Compose"),
         TaskEntity("3", "Make coffee"),
         TaskEntity("4", "Go to the gym"),
+        TaskEntity("5", "Read my book"),
+        TaskEntity("6", "Respond to emails"),
+        TaskEntity("7", "Look for headphones"),
+        TaskEntity("8", "Clean the kitchen"),
+        TaskEntity("9", "Call mom"),
+        TaskEntity("10", "Remind Noeno about our meeting"),
     )
 
     // работаем на корутинах
